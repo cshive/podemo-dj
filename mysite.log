@@ -523,3 +523,72 @@ django.db.utils.OperationalError: no such table: django_session
 [13/Feb/2015 16:06:55] WARNING [django.request:143] Not Found: /static/admin/img/icon_addlink.gif
 [13/Feb/2015 16:06:55] WARNING [django.request:143] Not Found: /static/admin/img/icon_changelink.gif
 [13/Feb/2015 16:06:55] WARNING [django.request:143] Not Found: /static/admin/img/nav-bg.gif
+[13/Feb/2015 21:17:42] WARNING [django.request:143] Not Found: /
+[13/Feb/2015 21:17:49] WARNING [django.request:143] Not Found: /
+[13/Feb/2015 21:22:07] ERROR [django.request:231] Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/site-packages/django/core/urlresolvers.py", line 364, in urlconf_module
+    return self._urlconf_module
+AttributeError: 'RegexURLResolver' object has no attribute '_urlconf_module'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python3.4/site-packages/django/core/urlresolvers.py", line 343, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python3.4/site-packages/django/core/urlresolvers.py", line 372, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python3.4/site-packages/django/core/urlresolvers.py", line 366, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python3.4/importlib/__init__.py", line 109, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 2254, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 2237, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 2226, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1200, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1129, in _exec
+  File "<frozen importlib._bootstrap>", line 1467, in exec_module
+  File "<frozen importlib._bootstrap>", line 1572, in get_code
+  File "<frozen importlib._bootstrap>", line 1532, in source_to_code
+  File "<frozen importlib._bootstrap>", line 321, in _call_with_frames_removed
+  File "./podemo/urls.py", line 15
+    ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)i
+                                                                       ^
+SyntaxError: invalid syntax
+[13/Feb/2015 21:22:28] WARNING [django.request:143] Not Found: /
+[13/Feb/2015 21:22:31] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s) LIMIT 21' - PARAMS = ('2015-02-13 21:22:31.931659', 'sj8lm4rbsv45fz9bdz53k32nwj290560'); args=('2015-02-13 21:22:31.931659', 'sj8lm4rbsv45fz9bdz53k32nwj290560')
+[13/Feb/2015 21:22:31] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = %s LIMIT 1' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf',); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf',)
+[13/Feb/2015 21:22:31] DEBUG [django.db.backends:91] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[13/Feb/2015 21:22:31] DEBUG [django.db.backends:91] (0.000) QUERY = 'INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT %s AS "session_key", %s AS "session_data", %s AS "expire_date"' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', 'NGQ2ZmIxZmYzY2U1NjE3OTQ4YjdjYzljMTBhOWZiZGQyNTgwYmQxNzp7fQ==', '2015-02-27 21:22:31.935407'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', 'NGQ2ZmIxZmYzY2U1NjE3OTQ4YjdjYzljMTBhOWZiZGQyNTgwYmQxNzp7fQ==', '2015-02-27 21:22:31.935407')
+[13/Feb/2015 21:22:31] DEBUG [django.db.backends:91] (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+[13/Feb/2015 21:22:31] DEBUG [django.db.backends:91] (0.000) QUERY = 'UPDATE "django_session" SET "session_data" = %s, "expire_date" = %s WHERE "django_session"."session_key" = %s' - PARAMS = ('NGQ2ZmIxZmYzY2U1NjE3OTQ4YjdjYzljMTBhOWZiZGQyNTgwYmQxNzp7fQ==', '2015-02-27 21:22:31.978094', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf'); args=('NGQ2ZmIxZmYzY2U1NjE3OTQ4YjdjYzljMTBhOWZiZGQyNTgwYmQxNzp7fQ==', '2015-02-27 21:22:31.978094', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf')
+[13/Feb/2015 21:22:32] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s) LIMIT 21' - PARAMS = ('2015-02-13 21:22:32.003038', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf'); args=('2015-02-13 21:22:32.003038', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf')
+[13/Feb/2015 21:22:32] WARNING [django.request:143] Not Found: /static/admin/css/base.css
+[13/Feb/2015 21:22:32] WARNING [django.request:143] Not Found: /static/admin/css/login.css
+[13/Feb/2015 21:22:37] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s) LIMIT 21' - PARAMS = ('2015-02-13 21:22:37.612440', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf'); args=('2015-02-13 21:22:37.612440', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf')
+[13/Feb/2015 21:22:37] WARNING [django.request:143] Not Found: /static/admin/css/base.css
+[13/Feb/2015 21:22:37] WARNING [django.request:143] Not Found: /static/admin/css/login.css
+[13/Feb/2015 21:23:32] WARNING [django.request:143] Not Found: /
+[13/Feb/2015 21:23:34] WARNING [django.request:143] Not Found: /
+[13/Feb/2015 21:23:36] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s) LIMIT 21' - PARAMS = ('2015-02-13 21:23:36.946726', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf'); args=('2015-02-13 21:23:36.946726', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf')
+[13/Feb/2015 21:23:36] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > %s AND "django_session"."session_key" = %s) LIMIT 21' - PARAMS = ('2015-02-13 21:23:36.965869', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf'); args=('2015-02-13 21:23:36.965869', 'd7bbev4e6u4rjm90snq38jh1ljyfs4vf')
+[13/Feb/2015 21:32:41] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:41.989424'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:41.989424')
+[13/Feb/2015 21:32:45] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:45.191839'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:45.191839')
+[13/Feb/2015 21:32:45] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:45.197944'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:45.197944')
+[13/Feb/2015 21:32:57] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:57.189835'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:57.189835')
+[13/Feb/2015 21:32:57] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:57.195993'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:57.195993')
+[13/Feb/2015 21:32:59] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:59.153874'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:32:59.153874')
+[13/Feb/2015 21:33:14] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:14.815631'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:14.815631')
+[13/Feb/2015 21:33:32] WARNING [django.request:143] Not Found: /favicon.ico
+[13/Feb/2015 21:33:37] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:37.558012'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:37.558012')
+[13/Feb/2015 21:33:37] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:37.581182'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:37.581182')
+[13/Feb/2015 21:33:39] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:39.690857'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:39.690857')
+[13/Feb/2015 21:33:40] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:40.500291'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:33:40.500291')
+[13/Feb/2015 21:33:56] WARNING [django.request:143] Not Found: /
+[13/Feb/2015 21:33:57] WARNING [django.request:143] Not Found: /
+[13/Feb/2015 21:34:39] WARNING [django.request:143] Not Found: /as
+[13/Feb/2015 21:36:59] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:36:59.970114'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:36:59.970114')
+[13/Feb/2015 21:36:59] DEBUG [django.db.backends:91] (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:36:59.990017'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:36:59.990017')
+[13/Feb/2015 21:37:02] DEBUG [django.db.backends:91] (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s) LIMIT 21' - PARAMS = ('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:37:02.091221'); args=('d7bbev4e6u4rjm90snq38jh1ljyfs4vf', '2015-02-13 21:37:02.091221')
