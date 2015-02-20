@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'podemo.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    (r'^$', 'django.views.static.serve', {'document_root':'/var/djapps/podemo/','path':'index.html'}),
+    (r'^$', 'django.views.static.serve', {'document_root':'/local/content/ctrp/apps/podemo/','path':'index.html'}),
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^organization/', include('organization.urls', namespace="organization")),
 
