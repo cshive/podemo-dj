@@ -1,3 +1,4 @@
-*.pyc
+*.py[cod]
 *.log
 .idea/*
+__pycache__/
