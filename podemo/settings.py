@@ -10,7 +10,13 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from configparser import RawConfigParser
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+
+
+config = RawConfigParser()
+config.read('/local/content/ctrp/conf/settings_local.py')
 
 
 # Quick-start development settings - unsuitable for production
@@ -98,9 +104,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/podemo/static/'
+#STATIC_URL = '/podemo/static/'
+STATIC_URL = config.get('static', 'STATIC_URL')
+
 #comment line below to load static files in development mode (manage.py runserver)
 #STATIC_ROOT = '/local/content/ctrp/apps/podemo/static/'
+STATIC_ROOT = config.get('static', 'STATIC_ROOT')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
